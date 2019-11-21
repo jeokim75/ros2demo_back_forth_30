@@ -1,3 +1,27 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@intellicode-demo 
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+1
+00intellicode-demo/ros2demo_domain30_d
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+ros2demo_domain30_d/src/teleop_keyboard.py / 
+@intellicode-demo intellicode-demo Update teleop_keyboard.py
+695b9ca 8 minutes ago
+@intellicode-demo@lennalee
+Executable File  232 lines (186 sloc)  7.01 KB
+  
+ You're using jump to definition to discover and navigate code.
+Learn more or give us feedback
 # Copyright (c) 2011, Willow Garage, Inc.
 # All rights reserved.
 #
@@ -39,29 +63,28 @@ import rclpy
 from rclpy.qos import QoSProfile
 
 BURGER_MAX_LIN_VEL = 0.22
-BURGER_MAX_ANG_VEL = 2.84
+#BURGER_MAX_ANG_VEL = 2.84
+BURGER_MAX_ANG_VEL = 0.84
 
 WAFFLE_MAX_LIN_VEL = 0.26
 WAFFLE_MAX_ANG_VEL = 1.82
 
 LIN_VEL_STEP_SIZE = 0.01
-ANG_VEL_STEP_SIZE = 0.1
+#ANG_VEL_STEP_SIZE = 0.1
+ANG_VEL_STEP_SIZE = 0.2
 
 TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
 
 msg = """
-Control Your TurtleBot3!!
+Control Your TurtleBot3(turn right)!!
 ---------------------------
 Moving around:
         w
    a    s    d
         x
-
 w/x : increase/decrease linear velocity (Burger : ~ 0.22, Waffle and Waffle Pi : ~ 0.26)
 a/d : increase/decrease angular velocity (Burger : ~ 2.84, Waffle and Waffle Pi : ~ 1.82)
-
 space key, s : force stop
-
 CTRL-C to quit
 """
 
@@ -77,7 +100,6 @@ def get_key(settings):
         key = sys.stdin.read(1)
     else:
         key = ''
-
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     '''
     TEST_KEY = 'd'
@@ -124,10 +146,11 @@ def check_linear_limit_velocity(velocity):
 
 def check_angular_limit_velocity(velocity):
     if TURTLEBOT3_MODEL == 'burger':
-        '''
-        return constrain(velocity, -BURGER_MAX_ANG_VEL, BURGER_MAX_ANG_VEL)
-        '''
-        return 0.1
+        
+        #return constrain(velocity, -BURGER_MAX_ANG_VEL, BURGER_MAX_ANG_VEL)
+        print('check_angular_limit_velocity:\t velocity {0} '.format(velocity))
+        
+        return -0.2
     else:
         return constrain(velocity, -WAFFLE_MAX_ANG_VEL, WAFFLE_MAX_ANG_VEL)
 
@@ -227,3 +250,16 @@ def main():
 
 if __name__ == '__main__':
     main()
+© 2019 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+ You signed in with another tab or window. Reload to refresh your session.
