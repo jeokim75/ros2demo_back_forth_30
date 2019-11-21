@@ -1,27 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@intellicode-demo 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-1
-00intellicode-demo/ros2demo_domain30_d
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-ros2demo_domain30_d/src/teleop_keyboard.py / 
-@intellicode-demo intellicode-demo Update teleop_keyboard.py
-695b9ca 8 minutes ago
-@intellicode-demo@lennalee
-Executable File  232 lines (186 sloc)  7.01 KB
-  
- You're using jump to definition to discover and navigate code.
-Learn more or give us feedback
 # Copyright (c) 2011, Willow Garage, Inc.
 # All rights reserved.
 #
@@ -250,16 +226,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-© 2019 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
- You signed in with another tab or window. Reload to refresh your session.
