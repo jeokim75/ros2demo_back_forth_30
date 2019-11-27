@@ -52,7 +52,7 @@ ANG_VEL_STEP_SIZE = 0.2
 TURTLEBOT3_MODEL = os.environ['TURTLEBOT3_MODEL']
 
 msg = """
-Control Your TurtleBot3(turn right)!!
+Control Your TurtleBot3(BACK & FORTH)!!
 ---------------------------
 Moving around:
         w
@@ -69,8 +69,8 @@ Communications Failed
 """
 
 #added by jskim 2019.11.27
-key_list = ['w', 's', 'x', 's']
-list_size = 4
+key_list = ['s', 'w', 'w', 's', 'x', 'x']
+list_size = 6
 index = 0
 ####
 
@@ -90,7 +90,7 @@ def get_key(settings):
     TEST_KEY = key_list[index % list_size]
     
     #time.sleep(10)
-    time.sleep(5)
+    time.sleep(3)
 
     index = index + 1
     return TEST_KEY
@@ -165,13 +165,15 @@ def main():
             key = get_key(settings)
             print(key)
             if key == 'w' :
-                target_linear_velocity =\
-                    check_linear_limit_velocity(target_linear_velocity + LIN_VEL_STEP_SIZE)
+                #target_linear_velocity =\
+                #    check_linear_limit_velocity(target_linear_velocity + LIN_VEL_STEP_SIZE)
+                target_linear_velocity = target_linear_velocity + 0.03
                 status = status + 1
                 print_vels(target_linear_velocity, target_angular_velocity)
             elif key == 'x' :
-                target_linear_velocity =\
-                    check_linear_limit_velocity(target_linear_velocity - LIN_VEL_STEP_SIZE)
+                #target_linear_velocity =\
+                #    check_linear_limit_velocity(target_linear_velocity - LIN_VEL_STEP_SIZE)
+                target_linear_velocity = target_linear_velocity - 0.03
                 status = status + 1
                 print_vels(target_linear_velocity, target_angular_velocity)
             elif key == 'a' :
