@@ -68,6 +68,12 @@ e = """
 Communications Failed
 """
 
+#added by jskim 2019.11.27
+key_list = ['w', 's', 'x', 's']
+list_size = 4
+index = 0
+####
+
 def get_key(settings):
     '''
     tty.setraw(sys.stdin.fileno())
@@ -78,8 +84,15 @@ def get_key(settings):
         key = ''
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     '''
-    TEST_KEY = 'd'
-    time.sleep(10)
+    
+    #TEST_KEY = 'd'
+    #added by jskim 2019.11.27
+    TEST_KEY = key_list[index % list_size]
+    
+    #time.sleep(10)
+    time.sleep(5)
+
+    index = index + 1
     return TEST_KEY
 
 
