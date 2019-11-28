@@ -84,7 +84,8 @@ def get_key(settings, status):
     #TEST_KEY = 'd'
     #added by jskim 2019.11.27
     index = status % 6   
-
+    print(index)
+        
     if index == 1:
         TEST_KEY = 'w'
     elif index == 2:
@@ -160,6 +161,7 @@ def main():
     node = rclpy.create_node('teleop_keyboard')
     pub = node.create_publisher(Twist, 'cmd_vel', qos)
 
+    idx = 0
     status = 0
     target_linear_velocity   = 0.0
     target_angular_velocity  = 0.0
@@ -170,7 +172,7 @@ def main():
         print(msg)
         while(1):
             
-            key = get_key(settings, status)
+            key = get_key(settings, idx)
             print(key)
             if key == 'w' :
                 #target_linear_velocity =\
@@ -203,7 +205,10 @@ def main():
             else:
                 if (key == '\x03'):
                     break
-
+            
+            if idx == 5:
+                idx = 0
+                
             if status == 20 :
                 print(msg)
                 status = 0
