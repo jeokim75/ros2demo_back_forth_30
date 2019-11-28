@@ -102,7 +102,7 @@ def get_key(settings, idx):
         
     
     #time.sleep(10)
-    time.sleep(3)
+    time.sleep(5)
         
     return TEST_KEY
 
