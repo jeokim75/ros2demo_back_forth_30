@@ -68,9 +68,8 @@ e = """
 Communications Failed
 """
 
-index = 0
         
-def get_key(settings):
+def get_key(settings, status):
     '''
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -81,21 +80,26 @@ def get_key(settings):
     termios.tcsetattr(sys.stdin, termios.TCSADRAIN, settings)
     '''
     
-        #added by jskim 2019.11.27
-        key_list = ['s', 'w', 'w', 's', 'x', 'x']
-        list_size = 6
-        ####
-        
-    global index
         
     #TEST_KEY = 'd'
     #added by jskim 2019.11.27
-    TEST_KEY = key_list[index % list_size]
+    index = status % 6   
+
+    if index == 1:
+        TEST_KEY = 'w'
+    elif index == 2:
+        TEST_KEY = 'w'
+    elif index == 4:
+        TEST_KEY = 'x'
+    elif index == 5:
+        TEST_KEY = 'x'
+    else:
+        TEST_KEY = 's'
+        
     
     #time.sleep(10)
     time.sleep(3)
         
-    index = index + 1
     return TEST_KEY
 
 
@@ -161,12 +165,12 @@ def main():
     target_angular_velocity  = 0.0
     control_linear_velocity  = 0.0
     control_angular_velocity = 0.0
-
-
+    
     try:
         print(msg)
         while(1):
-            key = get_key(settings)
+            
+            key = get_key(settings, status)
             print(key)
             if key == 'w' :
                 #target_linear_velocity =\
