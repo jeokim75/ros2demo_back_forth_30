@@ -181,13 +181,13 @@ def main():
             if key == 'w' :
                 #target_linear_velocity =\
                 #    check_linear_limit_velocity(target_linear_velocity + LIN_VEL_STEP_SIZE)
-                target_linear_velocity = target_linear_velocity + 0.03
+                target_linear_velocity = target_linear_velocity + 0.05
                 status = status + 1
                 print_vels(target_linear_velocity, target_angular_velocity)
             elif key == 'x' :
                 #target_linear_velocity =\
                 #    check_linear_limit_velocity(target_linear_velocity - LIN_VEL_STEP_SIZE)
-                target_linear_velocity = target_linear_velocity - 0.03
+                target_linear_velocity = target_linear_velocity - 0.05
                 status = status + 1
                 print_vels(target_linear_velocity, target_angular_velocity)
             elif key == 'a' :
