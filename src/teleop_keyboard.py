@@ -68,13 +68,8 @@ e = """
 Communications Failed
 """
 
-#added by jskim 2019.11.27
-key_list = ['s', 'w', 'w', 's', 'x', 'x']
-list_size = 6
-index = 0
-####
 
-def get_key(settings):
+def get_key(settings, key_list, list_size, index):
     '''
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -91,7 +86,7 @@ def get_key(settings):
     
     #time.sleep(10)
     time.sleep(3)
-
+        
     index = index + 1
     return TEST_KEY
 
@@ -145,8 +140,8 @@ def check_angular_limit_velocity(velocity):
 
 
 def main():
-    settings = termios.tcgetattr(sys.stdin)
 
+    settings = termios.tcgetattr(sys.stdin)
     rclpy.init()
 
     qos = QoSProfile(depth=10)
@@ -159,10 +154,16 @@ def main():
     control_linear_velocity  = 0.0
     control_angular_velocity = 0.0
 
+        #added by jskim 2019.11.27
+        key_list = ['s', 'w', 'w', 's', 'x', 'x']
+        list_size = 6
+        index = 0
+        ####
+
     try:
         print(msg)
         while(1):
-            key = get_key(settings)
+            key = get_key(settings, key_list, list_size, index)
             print(key)
             if key == 'w' :
                 #target_linear_velocity =\
