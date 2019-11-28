@@ -67,9 +67,9 @@ CTRL-C to quit
 e = """
 Communications Failed
 """
+global index = 0
 
-
-def get_key(settings, key_list, list_size, index):
+def get_key(settings, key_list, list_size):
     '''
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -163,7 +163,7 @@ def main():
     try:
         print(msg)
         while(1):
-            key = get_key(settings, key_list, list_size, index)
+            key = get_key(settings, key_list, list_size)
             print(key)
             if key == 'w' :
                 #target_linear_velocity =\
