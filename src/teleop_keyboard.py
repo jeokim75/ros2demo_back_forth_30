@@ -219,7 +219,7 @@ def main():
                 if (key == '\x03'):
                     break
             
-            if idx == 10:
+            if idx == 12:
                 idx = 0
                 
             if status == 20 :
