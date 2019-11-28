@@ -69,7 +69,7 @@ Communications Failed
 """
 
         
-def get_key(settings, status):
+def get_key(settings, idx):
     '''
     tty.setraw(sys.stdin.fileno())
     rlist, _, _ = select.select([sys.stdin], [], [], 0.1)
@@ -83,7 +83,8 @@ def get_key(settings, status):
         
     #TEST_KEY = 'd'
     #added by jskim 2019.11.27
-    index = status % 6   
+    index = idx % 6   
+    print(idx)
     print(index)
         
     if index == 1:
@@ -174,6 +175,7 @@ def main():
             
             key = get_key(settings, idx)
             print(key)
+            idx = idx + 1
             if key == 'w' :
                 #target_linear_velocity =\
                 #    check_linear_limit_velocity(target_linear_velocity + LIN_VEL_STEP_SIZE)
