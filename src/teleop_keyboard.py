@@ -103,6 +103,8 @@ def get_key(settings, idx):
         TEST_KEY = 'x'
     elif index == 10:
         TEST_KEY = 'x'
+    elif index == 11:
+        TEST_KEY = 'x'
     else:
         TEST_KEY = 's'
 
