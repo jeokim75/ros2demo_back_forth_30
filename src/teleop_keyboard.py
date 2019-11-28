@@ -83,7 +83,7 @@ def get_key(settings, idx):
         
     #TEST_KEY = 'd'
     #added by jskim 2019.11.27
-    index = idx % 12   
+    index = idx % 14   
         
     if index == 1:
         TEST_KEY = 'w'
@@ -95,8 +95,8 @@ def get_key(settings, idx):
         TEST_KEY = 'w'
     elif index == 5:
         TEST_KEY = 'w'
-    elif index == 7:
-        TEST_KEY = 'x'
+    elif index == 6:
+        TEST_KEY = 'w'
     elif index == 8:
         TEST_KEY = 'x'
     elif index == 9:
@@ -104,6 +104,10 @@ def get_key(settings, idx):
     elif index == 10:
         TEST_KEY = 'x'
     elif index == 11:
+        TEST_KEY = 'x'
+    elif index == 12:
+        TEST_KEY = 'x'
+    elif index == 13:
         TEST_KEY = 'x'
     else:
         TEST_KEY = 's'
@@ -219,7 +223,7 @@ def main():
                 if (key == '\x03'):
                     break
             
-            if idx == 12:
+            if idx == 14:
                 idx = 0
                 
             if status == 20 :
