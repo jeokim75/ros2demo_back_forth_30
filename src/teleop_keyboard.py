@@ -106,7 +106,7 @@ def get_key(settings, idx):
     else:
         TEST_KEY = 's'
 
-    if index == 0 or index == 11:
+    if index == 0 or index == 6:
         time.sleep(2)
     else:
         time.sleep(5)
