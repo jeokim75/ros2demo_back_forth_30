@@ -45,7 +45,7 @@ RUN /bin/bash -c "rm -f ros2demo_back_forth_30/src/teleop_keyboard.py; \
                   chmod +x teleop_keyboard.py ;\
                   cp ros2demo_back_forth_30/src/entrypoint.sh . ;\
                   chmod +x entrypoint.sh ;\
-                  cp ros2demo_domain30/src/teleop_keyboard.py /turtlebot3_ws/src/turtlebot3/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/ ;\
+                  cp ros2demo_back_forth_30/src/teleop_keyboard.py /turtlebot3_ws/src/turtlebot3/turtlebot3/turtlebot3_teleop/turtlebot3_teleop/script/ ;\
                   chmod +x run_teleoperation.sh"
 
 
